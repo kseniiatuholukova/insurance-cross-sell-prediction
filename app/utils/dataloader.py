@@ -53,3 +53,5 @@ class DataLoader():
         self.dataset['Vintage'] = le.transform(self.dataset['Vintage'])
 
         self.dataset = self.dataset.drop('id', axis=1)
+
+        return self.dataset
