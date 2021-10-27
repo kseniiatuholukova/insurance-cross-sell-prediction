@@ -4,7 +4,7 @@ Small ML project that aims to predict health insurance owners who will be intere
 
 ## Problem Statement
 
-An Insurance company would like to plan its communication strategy to reach out the customers who are willing to purchase Vehicle Insurance provided by the company. Thus, the company will optimise its business model and revenue. In order to do so, it is highly helpful to predict whether the policyholders of Health Insurance from the past year will also be interested in Vehicle Insurance. The task is to build a model making this prediction. The information provided is about demographics (gender, age, region code type), Vehicles (Vehicle Age, Damage), Policy (Premium, sourcing channel) etc.
+An insurance company would like to plan its communication strategy to reach out the customers who are willing to purchase Vehicle Insurance. Thus, the company will optimise its business model and revenue. In order to do so, it is highly helpful to predict whether the policyholders of Health Insurance from the past year will also be interested in Vehicle Insurance. The objective is to build a model for making such prediction. The provided data contains information about demographics (gender, age, region), vehicles (vehicle age, vehicle damage), policy (premium, sourcing channel) etc.
 
 ## Solution
 
