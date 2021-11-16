@@ -53,7 +53,9 @@ class DataLoader():
         # le.fit(self.dataset['Vintage'])
         # self.dataset['Vintage'] = le.transform(self.dataset['Vintage'])
 
-        drop_elements = ['id', 'Driving_Lisence', 'Region_Code', 'Vintage']
+        drop_elements = [
+            'id', 'Driving_Lisence', 'Annual_Premium', 'Region_Code', 'Vintage'
+        ]
 
         self.dataset = self.dataset.drop(drop_elements, axis=1)
 
