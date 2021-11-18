@@ -1,8 +1,6 @@
 import pandas as pd
 import csv
 
-# issues can emerge given data is shuffled in app/data/train.csv, app/data/test.csv
-
 
 class Dataset:
     def __init__(self, csv_file):
