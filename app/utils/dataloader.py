@@ -1,12 +1,9 @@
 import pandas as pd
 import numpy as np
 
+from imblearn.combine import SMOTEENN
 from sklearn.preprocessing import LabelEncoder
-
-
-def normalize(data):
-    normalized_data = (data - data.min()) / (data.max() - data.min())
-    return normalized_data
+from sklearn.preprocessing import minmax_scale
 
 
 class DataLoader():
@@ -14,7 +11,7 @@ class DataLoader():
         self.dataset = dataset.copy()
 
     def load_data(self):
-        self.dataset['Age'] = normalize(self.dataset['Age'])
+        self.dataset['Age'] = minmax_scale(self.dataset['Age'])
         # self.dataset['Annual_Premium'] = normalize(
         #     self.dataset['Annual_Premium'])
 
@@ -28,9 +25,9 @@ class DataLoader():
         le.fit(self.dataset['Gender'])
         self.dataset['Gender'] = le.transform(self.dataset['Gender'])
 
-        # le.fit(self.dataset['Driving_Lisence'])
-        # self.dataset['Driving_Lisence'] = le.transform(
-        #     self.dataset['Driving_Lisence'])
+        # le.fit(self.dataset['Driving_License'])
+        # self.dataset['Driving_License'] = le.transform(
+        #     self.dataset['Driving_License'])
 
         # le.fit(self.dataset['Region_Code'])
         # self.dataset['Region_Code'] = le.transform(self.dataset['Region_Code'])
@@ -54,9 +51,16 @@ class DataLoader():
         # self.dataset['Vintage'] = le.transform(self.dataset['Vintage'])
 
         drop_elements = [
-            'id', 'Driving_Lisence', 'Annual_Premium', 'Region_Code', 'Vintage'
+            'id', 'Driving_License', 'Annual_Premium', 'Region_Code', 'Vintage'
         ]
 
         self.dataset = self.dataset.drop(drop_elements, axis=1)
 
         return self.dataset
+
+
+class Resampler():
+    def fit(self, X, y):
+        sampler = SMOTEENN(sampling_strategy=0.62, random_state=0)
+
+        return sampler.fit_resample(X, y)

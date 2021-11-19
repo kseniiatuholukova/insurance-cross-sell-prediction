@@ -134,3 +134,9 @@ dmypy.json
 
 # data exploration
 exploratory.ipynb
+
+# model selection
+model_selection.ipynb
+
+# model training
+model_training.ipynb
