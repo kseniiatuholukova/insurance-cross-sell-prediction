@@ -57,10 +57,3 @@ class DataLoader():
         self.dataset = self.dataset.drop(drop_elements, axis=1)
 
         return self.dataset
-
-
-class Resampler():
-    def fit(self, X, y):
-        sampler = SMOTEENN(sampling_strategy=0.62, random_state=0)
-
-        return sampler.fit_resample(X, y)
