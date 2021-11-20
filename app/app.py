@@ -1,10 +1,9 @@
-from utils import Predictor
-from utils import DataLoader
-
-from flask import Flask, request, jsonify, make_response
-
 import pandas as pd
 import json
+from flask import Flask, request, jsonify, make_response
+
+from utils import Predictor
+from utils import DataLoader
 
 app = Flask(__name__)
 
