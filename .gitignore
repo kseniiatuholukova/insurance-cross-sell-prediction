@@ -132,11 +132,8 @@ dmypy.json
 .vscode/*
 !.settings.json
 
-# data exploration
+# data manipulation and modeling
 exploratory.ipynb
-
-# model selection
 model_selection.ipynb
-
-# model training
 model_training.ipynb
+model_check.ipynb
