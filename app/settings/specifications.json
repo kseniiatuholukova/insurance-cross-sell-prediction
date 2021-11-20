@@ -42,7 +42,7 @@
             "params": {
                 "in_columns": [
                     "id",
-                    "Driving_Lisence",
+                    "Driving_License",
                     "Annual_Premium",
                     "Region_Code",
                     "Vintage"
