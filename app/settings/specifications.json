@@ -27,17 +27,6 @@
     "operations": [
         {
             "operation_number": 1,
-            "operation_name": "normalize",
-            "params": {
-                "in_columns": [
-                    [
-                        "Age"
-                    ]
-                ]
-            }
-        },
-        {
-            "operation_number": 2,
             "operation_name": "drop_columns",
             "params": {
                 "in_columns": [
@@ -50,7 +39,7 @@
             }
         },
         {
-            "operation_number": 3,
+            "operation_number": 2,
             "operation_name": "encode_labels",
             "params": {
                 "in_columns": [
