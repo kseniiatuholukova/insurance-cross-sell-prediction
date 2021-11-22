@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 
 from sklearn.preprocessing import LabelEncoder
-# from sklearn.preprocessing import minmax_scale
 
 
 class DataLoader():
@@ -10,8 +9,6 @@ class DataLoader():
         self.dataset = dataset.copy()
 
     def load_data(self):
-        # self.dataset['Age'] = minmax_scale(self.dataset['Age'])
-
         le = LabelEncoder()
 
         le.fit(self.dataset['Gender'])
