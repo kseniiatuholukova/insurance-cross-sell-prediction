@@ -19,6 +19,7 @@
             "Previously_Insured",
             "Vehicle_Age",
             "Vehicle_Damage",
+            "Annual_Premium",
             "Policy_Sales_Channel"
         ],
         "y": "Response",
@@ -32,7 +33,6 @@
                 "in_columns": [
                     "id",
                     "Driving_License",
-                    "Annual_Premium",
                     "Region_Code",
                     "Vintage"
                 ]

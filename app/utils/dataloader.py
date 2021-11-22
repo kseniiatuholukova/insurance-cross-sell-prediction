@@ -29,9 +29,7 @@ class DataLoader():
         self.dataset['Policy_Sales_Channel'] = le.transform(
             self.dataset['Policy_Sales_Channel'])
 
-        drop_elements = [
-            'id', 'Driving_License', 'Annual_Premium', 'Region_Code', 'Vintage'
-        ]
+        drop_elements = ['id', 'Driving_License', 'Region_Code', 'Vintage']
 
         self.dataset = self.dataset.drop(drop_elements, axis=1)
 
