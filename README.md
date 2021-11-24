@@ -6,9 +6,9 @@ Small ML project that aims to predict health insurance owners who will be intere
 
 An insurance company would like to plan its communication strategy to reach the customers who are willing to purchase Vehicle Insurance. Thus, the company will optimise its business model and revenue. In order to do so, it is highly helpful to predict whether the policyholders of Health Insurance from the past year will also be interested in Vehicle Insurance. The objective is to build a model for making such predictions. The provided data contains information about demographics (gender, age, region), vehicles (vehicle age, vehicle damage), policy (premium, sourcing channel) etc.
 
-## Solution
+## Solution (IN PROGRESS)
 
-The customers’ willingness to buy Vehicle Insurance (‘Yes’ or ‘No’ response) is predicted with the accuracy of 0.87. The prediction is made with the Gradient Boosting Classifier (GBC), which appeared to be among the preselected estimators with the highest accuracy score, and exhibited high robustness to changes in the dataset. Cross-validation was performed with a stratified shuffle split.  
+(TO BE UPDATED) The customers’ willingness to buy Vehicle Insurance (‘Yes’ or ‘No’ response) is predicted with the accuracy of 0.87. The prediction is made with the Gradient Boosting Classifier (GBC), which appeared to be among the preselected estimators with the highest accuracy score, and exhibited relatively high robustness to changes in the dataset. Cross-validation was performed with a stratified shuffle split.  
 
 <p align="center">
   <img src="./images/classifier_acc_1.png">
@@ -42,7 +42,7 @@ Run the application from terminal.
     $ python app.py
 
 
-In order to check the model performance on the stored test dataset (or any other random sample from <a href="https://www.kaggle.com/anmolkumar/health-insurance-cross-sell-prediction">the dataset</a> saved in /app/data/val.csv), and write out predicted values to a .csv file, run the following code.
+In order to check the model performance on the saved test set and write out predicted values to a .csv file, run the following code. Any other random sample from <a href="https://www.kaggle.com/anmolkumar/health-insurance-cross-sell-prediction?select=train.csv">the dataset</a> can be saved in /app/data/val.csv and tested.
 
     import csv
     import json
@@ -82,5 +82,6 @@ In order to check the model performance on the stored test dataset (or any other
 ## To Do
 
 In progress!
-- Add a nice Jupyter notebook containing exploratory data analysis and describing model selection.
+- Provide a better solution, update the model (it has limitiations).
+- Add a Jupyter notebook with EDA and model selection.
 - Add Serializer class. Extend functionality and add more endpoints.
