@@ -133,7 +133,4 @@ dmypy.json
 !.settings.json
 
 # data manipulation and modeling
-exploratory.ipynb
-model_selection.ipynb
-model_training.ipynb
-model_check.ipynb
+*.ipynb
