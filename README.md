@@ -1,24 +1,36 @@
 # Health Insurance Cross Sell Prediction
 
-Small ML project that aims to predict health insurance owners who will be interested in vehicle insurance based on a <a href="https://www.kaggle.com/anmolkumar/health-insurance-cross-sell-prediction">Kaggle dataset</a>. Utilises NumPy, pandas and scikit-learn tools. Comes with a Web API made with Flask, and a Dockerfile for containerization.
+Small project made as an exercise in ML. It aims to predict health insurance owners who will be interested in vehicle insurance based on a <a href="https://www.kaggle.com/anmolkumar/health-insurance-cross-sell-prediction">Kaggle dataset</a>. Utilises NumPy, pandas and scikit-learn tools. Comes with a Web API made with Flask, and a Dockerfile for containerization.
 
 ## Problem Statement
 
 An insurance company would like to plan its communication strategy to reach the customers who are willing to purchase Vehicle Insurance. Thus, the company will optimise its business model and revenue. In order to do so, it is highly helpful to predict whether the policyholders of Health Insurance from the past year will also be interested in Vehicle Insurance. The objective is to build a model for making such predictions. The provided data contains information about demographics (gender, age, region), vehicles (vehicle age, vehicle damage), policy (premium, sourcing channel) etc.
 
-## Solution (IN PROGRESS)
+## Solution
 
-(TO BE UPDATED) The customers’ willingness to buy Vehicle Insurance (‘Yes’ or ‘No’ response) is predicted with the accuracy of 0.87. The prediction is made with the Gradient Boosting Classifier (GBC), which appeared to be among the preselected estimators with the highest accuracy score, and exhibited relatively high robustness to changes in the dataset. Cross-validation was performed with a stratified shuffle split.  
+The customers’ willingness to buy Vehicle Insurance (‘Yes’ or ‘No’ response) is predicted with the accuracy of 0.84. The prediction is made with the Gradient Boosting Classifier (GBC), which appeared to be among the preselected estimators with the highest accuracy score, and exhibited relatively high robustness to changes in the dataset. Cross-validation was performed with a stratified shuffle split.  
+
+The models' accuracy comparison:
 
 <p align="center">
-  <img src="./images/classifier_acc_1.png">
+  <img src="./images/acc_1.png">
 </p>
 
 <p align="center">
-  <img src="./images/classifier_acc_2.png">
+  <img src="./images/acc_2.png">
 </p>
+
+The GBC performance:
+
+<p align="center">
+  <img src="./images/class_report_GBC.png">
+</p>
+
+<p align="center">
+  <img src="./images/GBC_ROC.png">
+</p>  
   
-The accuracy score for GBC on the test dataset is 0.8694.
+The accuracy score for GBC on the test dataset is 0.8448.
 
 
 ## Technologies
@@ -36,13 +48,11 @@ To run the project locally, navigate to the app directory and install requiremen
 
     $ pip install -r requirements.txt
 
-
 Run the application from terminal.
 
     $ python app.py
 
-
-In order to check the model performance on the saved test set and write out predicted values to a .csv file, run the following code. Any other random sample from <a href="https://www.kaggle.com/anmolkumar/health-insurance-cross-sell-prediction?select=train.csv">the dataset</a> can be saved in /app/data/val.csv and tested.
+In order to get predicted values and check the model performance on the saved test set, run the following code.
 
     import csv
     import json
@@ -65,23 +75,15 @@ In order to check the model performance on the saved test set and write out pred
     # serialize data and send request
     req_data = {'data': json.dumps(val_x.to_dict())}
     response = requests.get('http://0.0.0.0:8000/predict', data=req_data)
-
-    # print the first ten predicted values and the accuracy score
-    api_predict = response.json()['prediction']
-    print('predicted: ', api_predict[:10])
-
-    api_score = eval(metrics)(val_y, api_predict)
+    
+    # get prediction and print the accuracy score
+    api_predicted = response.json()['prediction']
+    
+    api_score = eval(metrics)(val_y, api_predicted)
     print('accuracy: ', api_score)
-
-    # write out the predicted values
-    with open('<path_to_the_file>/<filename>.csv', 'w+') as f:
-        writer = csv.writer(f)
-        for item in api_predict:
-            writer.writerow([item])
 
 ## To Do
 
 In progress!
-- Provide a better solution, update the model (it has limitiations).
 - Add a Jupyter notebook with EDA and model selection.
 - Add Serializer class. Extend functionality and add more endpoints.
